@@ -1,0 +1,53 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\USERS\\DANIEL\\GODOT PROJECTS\\PONG 2 ELECTRIC BOOGALOO\\Pong 2 Electric Boogaloo.csproj": {}
+  },
+  "projects": {
+    "C:\\USERS\\DANIEL\\GODOT PROJECTS\\PONG 2 ELECTRIC BOOGALOO\\Pong 2 Electric Boogaloo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\USERS\\DANIEL\\GODOT PROJECTS\\PONG 2 ELECTRIC BOOGALOO\\Pong 2 Electric Boogaloo.csproj",
+        "projectName": "Pong 2 Electric Boogaloo",
+        "projectPath": "C:\\USERS\\DANIEL\\GODOT PROJECTS\\PONG 2 ELECTRIC BOOGALOO\\Pong 2 Electric Boogaloo.csproj",
+        "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
+        "outputPath": "C:\\USERS\\DANIEL\\GODOT PROJECTS\\PONG 2 ELECTRIC BOOGALOO\\.mono\\temp\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
