@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Pong 2 Electric Boogaloo"
-run/main_scene="res://MenuScene.tscn"
+run/main_scene="res://Scenes/InGame.tscn"
 config/icon="res://Sprites/icon.png"
 
 [display]
