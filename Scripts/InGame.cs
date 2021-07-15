@@ -20,13 +20,13 @@ public class InGame : Node2D
         IBall.Connect("Scored", this, "_Score_Show");
         IBall.Set("linear_velocity", Vel);
     }
-    public void _Score_Show(bool Who) //true for player 1, false for player 2
+    public void _Score_Show(bool Who)
     {
-        if (Who)
+        if (Who) //Player 2 Scored
         {
             GetNode<Label>("Player_Scored").Set("text", "Player 2 Scored!!");
         }
-        else
+        else     //Player 1 Scored
         {
             GetNode<Label>("Player_Scored").Set("text", "Player 1 Scored!!");
         }
