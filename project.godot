@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Pong 2 Electric Boogaloo"
-run/main_scene="res://MenuScene.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://Sprites/icon.png"
 
 [display]
@@ -22,10 +22,6 @@ window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
-
-[mono]
-
-debugger_agent/wait_for_debugger=true
 
 [physics]
 

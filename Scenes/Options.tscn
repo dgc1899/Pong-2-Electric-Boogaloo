@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Controls/MusicSlider.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Controls/SFXSlider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/HelvetiPixel_36.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scripts/Options.cs" type="Script" id=4]
+
+[node name="OptionsScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.667419
+margin_top = 0.667419
+margin_right = -0.667419
+margin_bottom = 0.667419
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundContainer" type="VBoxContainer" parent="."]
+margin_left = 101.0
+margin_top = 20.0
+margin_right = 600.0
+margin_bottom = 170.0
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicSlider" parent="SoundContainer" instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 49.0
+margin_right = 499.0
+margin_bottom = 65.0
+
+[node name="SFXSlider" parent="SoundContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 85.0
+margin_right = 499.0
+margin_bottom = 101.0
+
+[node name="KeybindsPanel" type="Panel" parent="."]
+margin_left = 120.0
+margin_top = 170.0
+margin_right = 480.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeybindList" type="VBoxContainer" parent="KeybindsPanel"]
+margin_right = 358.0
+margin_bottom = 160.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="Button" parent="KeybindsPanel"]
+margin_left = 317.91
+margin_top = 168.064
+margin_right = 358.91
+margin_bottom = 188.064
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OKButton" type="Button" parent="."]
+margin_left = 590.419
+margin_top = 320.529
+margin_right = 638.419
+margin_bottom = 357.529
+rect_pivot_offset = Vector2( -81.7294, -13.3229 )
+custom_fonts/font = ExtResource( 3 )
+text = "OK"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 1.42967
+margin_top = 322.917
+margin_right = 71.4297
+margin_bottom = 359.917
+custom_fonts/font = ExtResource( 3 )
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

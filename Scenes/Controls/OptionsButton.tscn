@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Controls/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Options.tscn" type="PackedScene" id=2]
+
+[node name="OptionsButton" instance=ExtResource( 1 )]
+SceneToLoad = ExtResource( 2 )
+
+[node name="MenuButtonLabel" parent="." index="0"]
+text = "Options"

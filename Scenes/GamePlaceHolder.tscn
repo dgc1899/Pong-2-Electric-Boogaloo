@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CSharpScript" id=1]
+resource_name = "GamePlaceHolder"
+script/source = "using Godot;
+using System;
+
+public class GamePlaceHolder : Node2D
+{
+    // Declare member variables here. Examples:
+    // private int a = 2;
+    // private string b = \"text\";
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        
+    }
+
+//  // Called every frame. 'delta' is the elapsed time since the previous frame.
+//  public override void _Process(float delta)
+//  {
+//      
+//  }
+}
+"
+
+[node name="GamePlaceHolder" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 239.031
+margin_top = 89.7851
+margin_right = 279.031
+margin_bottom = 103.785
+text = "Shitty Placeholder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 285.41
+margin_top = 121.299
+margin_right = 297.41
+margin_bottom = 141.299
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
