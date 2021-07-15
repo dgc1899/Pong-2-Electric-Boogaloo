@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/HelvetiPixel_36.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Sprites/HelvetiPixel.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/NewGame.cs" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[node name="NewGameScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 334.226, 339.506 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerOptionContainer" type="VBoxContainer" parent="."]
+margin_left = 40.0
+margin_top = 20.0
+margin_right = 600.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OnePlayerCheck" type="CheckBox" parent="PlayerOptionContainer"]
+margin_right = 560.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "One Player"
+
+[node name="TwoPlayerCheck" type="CheckBox" parent="PlayerOptionContainer"]
+margin_top = 52.0
+margin_right = 560.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Two Players (local)"
+
+[node name="DifficultyContainer" type="VBoxContainer" parent="."]
+margin_left = 40.0
+margin_top = 180.0
+margin_right = 600.0
+margin_bottom = 308.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="DifficultyContainer"]
+margin_top = 54.0
+margin_right = 123.0
+margin_bottom = 74.0
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 1 )
+text = "Select a difficulty"
+align = 1
+
+[node name="PlayContainer" type="CenterContainer" parent="."]
+margin_left = 493.077
+margin_top = 299.37
+margin_right = 643.077
+margin_bottom = 359.37
+rect_pivot_offset = Vector2( -176.872, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="PlayContainer"]
+margin_left = 40.0
+margin_top = 11.0
+margin_right = 110.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Play!"
+flat = true
+
+[node name="BackContainer" type="CenterContainer" parent="."]
+margin_left = 6.13351
+margin_top = 299.484
+margin_right = 156.134
+margin_bottom = 359.484
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="BackContainer"]
+margin_left = 40.0
+margin_top = 11.0
+margin_right = 110.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 1 )
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="PlayContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="BackContainer/BackButton" to="." method="_on_BackButton_pressed"]
