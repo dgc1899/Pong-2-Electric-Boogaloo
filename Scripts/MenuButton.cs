@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class MenuButton : Button
 {
@@ -10,7 +9,7 @@ public class MenuButton : Button
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        
+
     }
 
 

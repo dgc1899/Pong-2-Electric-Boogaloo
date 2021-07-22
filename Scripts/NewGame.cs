@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class NewGame : Control
 {
@@ -33,9 +32,9 @@ public class NewGame : Control
         DifficultyContainer.Visible = true;
         TwoPlayer.Pressed = false;
 
-        Difficulties.AddItem("Easy",1);
-        Difficulties.AddItem("Medium",2);
-        Difficulties.AddItem("Hard",3);
+        Difficulties.AddItem("Easy", 1);
+        Difficulties.AddItem("Medium", 2);
+        Difficulties.AddItem("Hard", 3);
 
     }
 
@@ -47,7 +46,7 @@ public class NewGame : Control
 
     public void _on_PlayButton_pressed()
     {
-        if((OnePlayer.Pressed==true && Difficulties.Selected!=-1) || TwoPlayer.Pressed == true)
+        if ((OnePlayer.Pressed == true && Difficulties.Selected != -1) || TwoPlayer.Pressed == true)
         {
             GetTree().ChangeScene("res://Scenes/GamePlaceHolder.tscn");
             //Todo: Pass one player / two player values and difficulty values to the game scene

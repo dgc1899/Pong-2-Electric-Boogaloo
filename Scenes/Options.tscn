@@ -51,7 +51,8 @@ __meta__ = {
 }
 
 [node name="KeybindList" type="VBoxContainer" parent="KeybindsPanel"]
-margin_right = 358.0
+margin_left = 0.793701
+margin_right = 358.794
 margin_bottom = 160.0
 __meta__ = {
 "_edit_use_anchors_": false

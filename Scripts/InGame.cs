@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class InGame : Node2D
 {
@@ -34,7 +33,7 @@ public class InGame : Node2D
     public void _Randomize_Ball_Direction()
     {
         RNG.Randomize();
-        if(RNG.RandiRange(0, 1) == 1)
+        if (RNG.RandiRange(0, 1) == 1)
             Vel.x = RNG.RandfRange(Min_X, Max_X);
         else
             Vel.x = RNG.RandfRange(-Min_X, -Max_X);
