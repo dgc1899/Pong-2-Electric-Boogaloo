@@ -48,7 +48,7 @@ public class NewGame : Control
     {
         if ((OnePlayer.Pressed == true && Difficulties.Selected != -1) || TwoPlayer.Pressed == true)
         {
-            GetTree().ChangeScene("res://Scenes/GamePlaceHolder.tscn");
+            GetTree().ChangeScene("res://Scenes/InGame.tscn");
             //Todo: Pass one player / two player values and difficulty values to the game scene
         }
     }
