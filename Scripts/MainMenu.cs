@@ -1,21 +1,19 @@
 using Godot;
-using Godot.Collections;
-using System;
 
 public class MainMenu : Control
 {
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        foreach(MenuButton button in GetNode("Menu/ButtonContainer").GetChildren())
+        foreach (MenuButton button in GetNode("Menu/ButtonContainer").GetChildren())
         {
-            button.Connect("pressed", this, "OnButtonPressed",new Godot.Collections.Array {button.SceneToLoad});
+            button.Connect("pressed", this, "OnButtonPressed", new Godot.Collections.Array { button.SceneToLoad });
         }
     }
 
     public void OnButtonPressed(PackedScene SceneToLoad)
     {
-        if(SceneToLoad == null)
+        if (SceneToLoad == null)
         {
             GetTree().Quit();
         }
@@ -23,7 +21,7 @@ public class MainMenu : Control
         {
             GetTree().ChangeSceneTo(SceneToLoad);
         }
-        
+
     }
 
 }

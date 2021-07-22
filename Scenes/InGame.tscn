@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sprites/Background.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/InGame.cs" type="Script" id=2]
+[ext_resource path="res://Sprites/HelvetiPixel_InGame.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Sprites/HelvetiPixel.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 180 )
@@ -22,6 +24,11 @@ bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 320, 5 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+outline_size = 1
+font_data = ExtResource( 4 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -71,32 +78,41 @@ position = Vector2( 320, 345 )
 shape = SubResource( 6 )
 
 [node name="Player_One_Counter" type="Label" parent="."]
-margin_top = 3.5636
-margin_right = 67.0
-margin_bottom = 17.5636
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Score: 111"
+margin_left = 7.01539
+margin_top = 2.68369
+margin_right = 61.0154
+margin_bottom = 16.6837
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Player_Two_Counter" type="Label" parent="."]
-margin_left = 570.0
-margin_top = 343.293
-margin_right = 640.0
-margin_bottom = 357.293
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Score: 111"
+margin_left = 577.218
+margin_top = 343.013
+margin_right = 647.218
+margin_bottom = 361.013
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Player_Scored" type="Label" parent="."]
-margin_left = 298.451
-margin_top = 69.4901
-margin_right = 338.451
-margin_bottom = 83.4901
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_left = 137.0
+margin_top = 45.0
+margin_right = 503.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Game will start in:
+3"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
