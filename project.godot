@@ -14,6 +14,10 @@ config/name="Pong 2 Electric Boogaloo"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://Sprites/icon.png"
 
+[autoload]
+
+Global="*res://Scripts/Global.cs"
+
 [display]
 
 window/size/width=640
