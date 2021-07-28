@@ -25,6 +25,7 @@ public class Ball : RigidBody2D
     {
         if (body.IsInGroup("Paddle"))
         {
+            GetNode<AudioStreamPlayer>("PaddleImpact").Play(0);
             Paddle = (Vector2)body.Get("position");
             if (Math.Abs(LinearVelocity.x) < 275)
             {
@@ -40,5 +41,7 @@ public class Ball : RigidBody2D
             else
                 LinearVelocity *= 0.9F;
         }
+        else
+            GetNode<AudioStreamPlayer>("WallImpact").Play(0);
     }
 }

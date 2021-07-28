@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/ballsmile.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Ball.cs" type="Script" id=2]
+[ext_resource path="res://Sound/paddle_impact.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sound/wallhit2.wav" type="AudioStream" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -38,6 +40,12 @@ shape = SubResource( 3 )
 [node name="Death" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="PaddleImpact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="WallImpact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_exited" from="." to="." method="_on_Ball_RigidBody_body_exited"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

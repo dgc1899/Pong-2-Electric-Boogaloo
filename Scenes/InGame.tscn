@@ -1,10 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Sprites/Background.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/InGame.cs" type="Script" id=2]
 [ext_resource path="res://Sprites/HelvetiPixel_InGame.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Sprites/HelvetiPixel.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Scenes/Paddle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sound/score.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sound/win.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sound/GO.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sound/321.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sound/The_C64_Experience_Pong.ogg" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 180 )
@@ -135,8 +140,28 @@ Player2 = true
 wait_time = 2.0
 one_shot = true
 
-[connection signal="BallIsAlive" from="." to="P1_Paddle" method="_on_Node2D_BallIsAlive"]
+[node name="SFX" type="Node" parent="."]
+
+[node name="WinSFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 7 )
+
+[node name="ScoreSFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 6 )
+
+[node name="CountdownSFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 9 )
+
+[node name="StartSFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 8 )
+
+[node name="BackgroundSFX" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 10 )
+volume_db = -17.0
+
+[node name="Tween" type="Tween" parent="SFX"]
+
 [connection signal="BallIsAlive" from="." to="P2_Paddle" method="_on_Node2D_BallIsAlive"]
+[connection signal="BallIsAlive" from="." to="P1_Paddle" method="_on_Node2D_BallIsAlive"]
 [connection signal="BallIsDead" from="." to="P2_Paddle" method="_on_Node2D_BallIsDead"]
 [connection signal="timeout" from="Spawn_Timer" to="." method="_on_Spawn_Timer_timeout"]
 [connection signal="timeout" from="End_Timer" to="." method="_on_End_timer_timeout"]

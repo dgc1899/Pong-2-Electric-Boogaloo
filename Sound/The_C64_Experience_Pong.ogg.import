@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/The_C64_Experience_Pong.ogg-113dea9d1d2305d16a376044f4cb62c8.oggstr"
+
+[deps]
+
+source_file="res://Sound/The_C64_Experience_Pong.ogg"
+dest_files=[ "res://.import/The_C64_Experience_Pong.ogg-113dea9d1d2305d16a376044f4cb62c8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

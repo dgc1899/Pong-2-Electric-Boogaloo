@@ -14,13 +14,16 @@ public class Paddle : StaticBody2D
     Global global;
     RigidBody2D Ball;
     bool BallAI;
+
+    Texture P2 = GD.Load<Texture>("res://Sprites/OrangePaddle.png");
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         global = GetNode<Global>("/root/Global");
-
         if (!global.Player_2 && Player2 || global.Difficulty == 3)
             PlayerControlled = false;
+        if (Player2)
+            GetNode<Sprite>("PaddleSprite").Set("texture", P2);
     }
     public void _on_Node2D_BallIsAlive()
     {
@@ -49,7 +52,7 @@ public class Paddle : StaticBody2D
             }
             Position += direction * (delta * velocity);
         }
-        else if (BallAI & (GetParent().GetNode<RigidBody2D>("Ball_RigidBody") != null))
+        else if (BallAI & (GetParent().GetNodeOrNull<RigidBody2D>("Ball_RigidBody") != null))
         {
             switch (global.Difficulty)
             {

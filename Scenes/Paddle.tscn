@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/GreenPaddle.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Paddle.cs" type="Script" id=2]
@@ -6,6 +6,10 @@
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 bounce = 1.0
+
+[sub_resource type="AnimatedTexture" id=3]
+fps = 0.0
+frame_0/texture = ExtResource( 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5.9289, 19.8491 )
@@ -16,7 +20,10 @@ script = ExtResource( 2 )
 PlayerControlled = true
 
 [node name="PaddleSprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}

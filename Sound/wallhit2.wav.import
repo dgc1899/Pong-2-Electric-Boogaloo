@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wallhit2.wav-3aca1cb1b78bd7226c2e18f7e66d1eb4.sample"
+
+[deps]
+
+source_file="res://Sound/wallhit2.wav"
+dest_files=[ "res://.import/wallhit2.wav-3aca1cb1b78bd7226c2e18f7e66d1eb4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
