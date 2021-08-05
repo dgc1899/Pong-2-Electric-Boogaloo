@@ -3,6 +3,7 @@ using Godot;
 public class InGame : Node2D
 {
     internal PackedScene Ball = GD.Load<PackedScene>("res://Scenes/Ball.tscn");
+    internal PackedScene Pause = GD.Load<PackedScene>("res://Scenes/Pause.tscn");
     internal Vector2 Vel = Vector2.Zero;
     internal RandomNumberGenerator RNG = new RandomNumberGenerator();
     internal const float Max_X = 170F, Min_X = 150F, Max_Y = 80F, Min_Y = 20F;
@@ -19,6 +20,15 @@ public class InGame : Node2D
         GetNode<Timer>("Spawn_Timer").Start(0);
         global = GetNode<Global>("/root/Global");
         MainLabel = GetNode<Label>("Player_Scored");
+    }
+    public override void _Process(float delta)
+    {
+        if (Input.IsActionJustPressed("ui_cancel"))
+        {
+            Node2D PauseScreen = Pause.Instance<Node2D>();
+            AddChild(PauseScreen);
+            GetTree().Paused = true;
+        }
     }
 
     public void _on_Spawn_Timer_timeout()
@@ -58,7 +68,7 @@ public class InGame : Node2D
             else
                 MainLabel.Set("text", "You win!");
         if (ScoreP2 == 3)
-            if(global.Player_2)
+            if (global.Player_2)
                 MainLabel.Set("text", "Player 2 Wins!");
             else
                 MainLabel.Set("text", "You've lost...");
@@ -70,7 +80,7 @@ public class InGame : Node2D
         GetNode<AudioStreamPlayer>("SFX/ScoreSFX").Play(0);
         if (Who) //Player 2 Scored
         {
-            if(global.Player_2)
+            if (global.Player_2)
                 MainLabel.Set("text", "Player 2 Scored!");
             else
                 MainLabel.Set("text", "Enemy has Scored!");

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/menuhover_alt.wav-b151d2a4243de72d7bcbd1bc60326084.sample"
+
+[deps]
+
+source_file="res://Sound/menuhover_alt.wav"
+dest_files=[ "res://.import/menuhover_alt.wav-b151d2a4243de72d7bcbd1bc60326084.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,24 +1,48 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Controls/MusicSlider.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Controls/SFXSlider.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/HelvetiPixel_36.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scripts/Options.cs" type="Script" id=4]
+[ext_resource path="res://Sprites/Options Sprites/Back.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Menu Sprites/pong2text.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Options Sprites/BackHold.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Options Sprites/BackHover.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Menu Sprites/titlebgframe.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Menu Sprites/titlebg.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Options Sprites/Music.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Menu Sprites/optionstext_select.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Menu Sprites/SFX.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Options Sprites/left.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Options Sprites/right.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Options Sprites/lefthover.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Options Sprites/righthover.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Options Sprites/leftpress.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Options Sprites/rightpress.png" type="Texture" id=19]
+[ext_resource path="res://Sound/menuhover_alt.wav" type="AudioStream" id=20]
 
 [node name="OptionsScreen" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -0.667419
-margin_top = 0.667419
-margin_right = -0.667419
-margin_bottom = 0.667419
+margin_right = -640.0
+margin_bottom = -360.0
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 10 )
+centered = false
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 24, 24 )
+texture = ExtResource( 6 )
+centered = false
+
 [node name="SoundContainer" type="VBoxContainer" parent="."]
+visible = false
 margin_left = 101.0
 margin_top = 20.0
 margin_right = 600.0
@@ -42,6 +66,7 @@ margin_right = 499.0
 margin_bottom = 101.0
 
 [node name="KeybindsPanel" type="Panel" parent="."]
+visible = false
 margin_left = 120.0
 margin_top = 170.0
 margin_right = 480.0
@@ -69,6 +94,7 @@ __meta__ = {
 }
 
 [node name="OKButton" type="Button" parent="."]
+visible = false
 margin_left = 590.419
 margin_top = 320.529
 margin_right = 638.419
@@ -81,16 +107,146 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton" type="Button" parent="."]
-margin_left = 1.42967
-margin_top = 322.917
-margin_right = 71.4297
-margin_bottom = 359.917
-custom_fonts/font = ExtResource( 3 )
-text = "Back"
-flat = true
+[node name="Buttons" type="Control" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[node name="SFX" type="Sprite" parent="Buttons" groups=[
+"Label",
+]]
+position = Vector2( 24, 242 )
+texture = ExtResource( 13 )
+centered = false
+
+[node name="Back" type="TextureButton" parent="Buttons" groups=[
+"Label",
+]]
+margin_left = 24.0
+margin_top = 316.0
+margin_right = 100.0
+margin_bottom = 336.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddSFX" type="TextureButton" parent="Buttons" groups=[
+"Add",
+]]
+margin_left = 150.0
+margin_top = 242.0
+margin_right = 160.0
+margin_bottom = 257.0
+action_mode = 0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RemSFX" type="TextureButton" parent="Buttons" groups=[
+"Rem",
+]]
+margin_left = 104.0
+margin_top = 242.0
+margin_right = 114.0
+margin_bottom = 257.0
+action_mode = 0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddMusic" type="TextureButton" parent="Buttons" groups=[
+"Add",
+]]
+margin_left = 150.0
+margin_top = 261.0
+margin_right = 160.0
+margin_bottom = 276.0
+action_mode = 0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RemMusic" type="TextureButton" parent="Buttons" groups=[
+"Rem",
+]]
+margin_left = 104.0
+margin_top = 261.0
+margin_right = 114.0
+margin_bottom = 276.0
+action_mode = 0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Buttons"]
+
+[node name="Timer" type="Timer" parent="Buttons"]
+wait_time = 0.5
+
+[node name="Music" type="Sprite" parent="Buttons" groups=[
+"Label",
+]]
+position = Vector2( 24, 261 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="optionstext_select" type="Sprite" parent="Buttons" groups=[
+"Label",
+]]
+position = Vector2( 24, 280 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="Value_SFX" type="Control" parent="Buttons" groups=[
+"Control",
+]]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value_Music" type="Control" parent="Buttons" groups=[
+"Control",
+]]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HoverSFX" type="AudioStreamPlayer" parent="Buttons"]
+stream = ExtResource( 20 )
+bus = "SFX"
+
+[node name="PaHTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="BackgroundFrame" type="Sprite" parent="."]
+texture = ExtResource( 9 )
+centered = false
+
+[connection signal="pressed" from="Buttons/Back" to="." method="_on_Back_pressed"]
+[connection signal="button_down" from="Buttons/AddSFX" to="." method="_on_AddSFX_button_down"]
+[connection signal="pressed" from="Buttons/AddSFX" to="." method="_on_AddSFX_pressed"]
+[connection signal="button_down" from="Buttons/RemSFX" to="." method="_on_RemSFX_button_down"]
+[connection signal="pressed" from="Buttons/RemSFX" to="." method="_on_RemSFX_pressed"]
+[connection signal="button_down" from="Buttons/AddMusic" to="." method="_on_AddMusic_button_down"]
+[connection signal="pressed" from="Buttons/AddMusic" to="." method="_on_AddMusic_pressed"]
+[connection signal="button_down" from="Buttons/RemMusic" to="." method="_on_RemMusic_button_down"]
+[connection signal="pressed" from="Buttons/RemMusic" to="." method="_on_RemMusic_pressed"]
+[connection signal="timeout" from="Buttons/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="PaHTimer" to="." method="_on_PaHTimer_timeout"]

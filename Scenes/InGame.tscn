@@ -144,19 +144,25 @@ one_shot = true
 
 [node name="WinSFX" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 7 )
+bus = "SFX"
 
 [node name="ScoreSFX" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 6 )
+bus = "SFX"
 
 [node name="CountdownSFX" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 9 )
+bus = "SFX"
 
 [node name="StartSFX" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 8 )
+bus = "SFX"
 
 [node name="BackgroundSFX" type="AudioStreamPlayer" parent="SFX"]
+pause_mode = 2
 stream = ExtResource( 10 )
 volume_db = -17.0
+bus = "Music"
 
 [node name="Tween" type="Tween" parent="SFX"]
 

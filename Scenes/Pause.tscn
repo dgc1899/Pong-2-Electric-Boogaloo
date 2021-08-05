@@ -1,0 +1,185 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Sprites/Pause Sprites/pausebg.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Pause.cs" type="Script" id=2]
+[ext_resource path="res://Sprites/Pause Sprites/Menu.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Pause Sprites/Continue.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Pause Sprites/Menu_hover.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Pause Sprites/Menu_selectpng.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Pause Sprites/Continue_select.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Pause Sprites/Continue_hover.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Options Sprites/SFX.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Options Sprites/Music.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Options Sprites/left.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Options Sprites/leftpress.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Options Sprites/rightpress.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Options Sprites/lefthover.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Options Sprites/righthover.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Options Sprites/right.png" type="Texture" id=16]
+[ext_resource path="res://Sound/menuhover_alt.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sprites/Pause Sprites/Sure.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Pause Sprites/Sure_hover.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Pause Sprites/Sure_select.png" type="Texture" id=20]
+
+[node name="PauseMenu" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 325, 180 )
+
+[node name="Buttons" type="Control" parent="."]
+margin_left = 233.0
+margin_top = 115.0
+margin_right = 417.0
+margin_bottom = 245.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="TextureButton" parent="Buttons"]
+margin_left = 24.0
+margin_top = 62.0
+margin_right = 160.0
+margin_bottom = 82.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="TextureButton" parent="Buttons"]
+margin_left = 24.0
+margin_top = 86.0
+margin_right = 99.0
+margin_bottom = 106.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confirmation" type="TextureButton" parent="Buttons"]
+visible = false
+margin_left = 24.0
+margin_top = 86.0
+margin_right = 120.0
+margin_bottom = 106.0
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFX" type="Sprite" parent="Buttons"]
+position = Vector2( 24, 24 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="Music" type="Sprite" parent="Buttons"]
+position = Vector2( 24, 43 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="AddSFX" type="TextureButton" parent="Buttons" groups=[
+"Add",
+]]
+margin_left = 150.0
+margin_top = 24.0
+margin_right = 160.0
+margin_bottom = 39.0
+action_mode = 0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RemSFX" type="TextureButton" parent="Buttons" groups=[
+"Rem",
+]]
+margin_left = 104.0
+margin_top = 24.0
+margin_right = 114.0
+margin_bottom = 39.0
+action_mode = 0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddMusic" type="TextureButton" parent="Buttons" groups=[
+"Add",
+]]
+margin_left = 150.0
+margin_top = 43.0
+margin_right = 160.0
+margin_bottom = 58.0
+action_mode = 0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RemMusic" type="TextureButton" parent="Buttons" groups=[
+"Rem",
+]]
+margin_left = 104.0
+margin_top = 43.0
+margin_right = 114.0
+margin_bottom = 58.0
+action_mode = 0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Buttons"]
+
+[node name="Value_SFX" type="Control" parent="Buttons" groups=[
+"Control",
+]]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value_Music" type="Control" parent="Buttons" groups=[
+"Control",
+]]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HoverSFX" type="AudioStreamPlayer" parent="Buttons"]
+stream = ExtResource( 17 )
+bus = "SFX"
+
+[node name="PaHTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="mouse_entered" from="Buttons/Continue" to="." method="_on_Continue_mouse_entered"]
+[connection signal="pressed" from="Buttons/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="mouse_entered" from="Buttons/Menu" to="." method="_on_Menu_mouse_entered"]
+[connection signal="pressed" from="Buttons/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="mouse_entered" from="Buttons/Confirmation" to="." method="_on_Confirmation_mouse_entered"]
+[connection signal="pressed" from="Buttons/Confirmation" to="." method="_on_Confirmation_pressed"]
+[connection signal="button_down" from="Buttons/AddSFX" to="." method="_on_AddSFX_button_down"]
+[connection signal="pressed" from="Buttons/AddSFX" to="." method="_on_AddSFX_pressed"]
+[connection signal="button_down" from="Buttons/RemSFX" to="." method="_on_RemSFX_button_down"]
+[connection signal="pressed" from="Buttons/RemSFX" to="." method="_on_RemSFX_pressed"]
+[connection signal="button_down" from="Buttons/AddMusic" to="." method="_on_AddMusic_button_down"]
+[connection signal="pressed" from="Buttons/AddMusic" to="." method="_on_AddMusic_pressed"]
+[connection signal="button_down" from="Buttons/RemMusic" to="." method="_on_RemMusic_button_down"]
+[connection signal="pressed" from="Buttons/RemMusic" to="." method="_on_RemMusic_pressed"]
+[connection signal="timeout" from="PaHTimer" to="." method="_on_PaHTimer_timeout"]

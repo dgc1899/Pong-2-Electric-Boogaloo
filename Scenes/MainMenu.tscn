@@ -1,16 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Sprites/HelvetiPixel.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scenes/Controls/QuitButton.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Controls/NewGameButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Controls/OptionsButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Menu Sprites/titlebgframe.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/NewGame.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Options.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Menu Sprites/quittext_select.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/MainMenu.cs" type="Script" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-size = 48
-outline_size = 2
-outline_color = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
-font_data = ExtResource( 1 )
+[ext_resource path="res://Sound/menuhover_alt.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sprites/Menu Sprites/titlebg.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Menu Sprites/newgametext2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Menu Sprites/newgametext_select.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Menu Sprites/newgametext.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/MenuButton.cs" type="Script" id=11]
+[ext_resource path="res://Sprites/Menu Sprites/optionstext_hover.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Menu Sprites/quittext_hover.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Menu Sprites/optionstext.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Menu Sprites/optionstext_select.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Menu Sprites/quittext.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Menu Sprites/pong2text.png" type="Texture" id=17]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -20,38 +26,78 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Menu" type="VBoxContainer" parent="."]
-margin_left = 40.0
-margin_top = 20.0
-margin_right = 600.0
-margin_bottom = 340.0
+[node name="titlebg" type="Sprite" parent="."]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 24, 24 )
+texture = ExtResource( 17 )
+centered = false
+
+[node name="Buttons" type="Control" parent="."]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleLabel" type="Label" parent="Menu"]
-margin_right = 560.0
-margin_bottom = 41.0
-custom_fonts/font = SubResource( 1 )
-text = "Pong 2: Electric Boogaloo"
-align = 1
-valign = 1
-autowrap = true
+[node name="Tween" type="Tween" parent="Buttons"]
 
-[node name="ButtonContainer" type="VBoxContainer" parent="Menu"]
-margin_top = 45.0
-margin_right = 560.0
-margin_bottom = 175.0
-custom_constants/separation = 20
-alignment = 1
+[node name="HoverSFX" type="AudioStreamPlayer" parent="Buttons"]
+stream = ExtResource( 6 )
+bus = "SFX"
 
-[node name="NewGameButton" parent="Menu/ButtonContainer" instance=ExtResource( 3 )]
-margin_bottom = 30.0
+[node name="NewGame" type="TextureButton" parent="Buttons"]
+anchor_left = -2.0
+anchor_top = -1.309
+anchor_right = -2.0
+anchor_bottom = -1.309
+margin_left = 24.0
+margin_top = 244.0
+margin_right = 168.0
+margin_bottom = 264.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 8 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+SceneToLoad = ExtResource( 2 )
 
-[node name="OptionsButton" parent="Menu/ButtonContainer" instance=ExtResource( 4 )]
-margin_top = 50.0
-margin_bottom = 80.0
+[node name="Options" type="TextureButton" parent="Buttons"]
+margin_left = 24.0
+margin_top = 280.0
+margin_right = 160.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 12 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+SceneToLoad = ExtResource( 3 )
 
-[node name="QuitButton" parent="Menu/ButtonContainer" instance=ExtResource( 2 )]
-margin_top = 100.0
-margin_bottom = 130.0
+[node name="Quit" type="TextureButton" parent="Buttons"]
+margin_left = 24.0
+margin_top = 316.0
+margin_right = 100.0
+margin_bottom = 336.0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 13 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Buttons"]
+
+[node name="titlebgframe" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[connection signal="mouse_entered" from="Buttons/NewGame" to="Buttons/NewGame" method="_on_NewGame_mouse_entered"]
+[connection signal="mouse_entered" from="Buttons/Options" to="Buttons/Options" method="_on_NewGame_mouse_entered"]
+[connection signal="mouse_entered" from="Buttons/Quit" to="Buttons/Quit" method="_on_NewGame_mouse_entered"]
+[connection signal="timeout" from="Buttons/Timer" to="." method="_on_Timer_timeout"]

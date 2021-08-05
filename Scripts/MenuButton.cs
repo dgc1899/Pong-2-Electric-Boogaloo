@@ -1,6 +1,6 @@
 using Godot;
 
-public class MenuButton : Button
+public class MenuButton : TextureButton
 {
     //Export string variable to capture the node it'll change to
     [Export]
@@ -11,6 +11,9 @@ public class MenuButton : Button
     {
 
     }
-
+    public void _on_NewGame_mouse_entered()
+    {
+        GetParent().GetNode<AudioStreamPlayer>("HoverSFX").Play(0);
+    }
 
 }
